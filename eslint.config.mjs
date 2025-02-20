@@ -42,7 +42,7 @@ export default withNuxt([
   {
     files: ['**/*.vue', '**/*.ts'],
     rules: {
-      'no-console': 'error', // 本番環境ではconsole.logを禁止
+      'no-console': ['error', { allow: ['error'] }], // 本番環境ではconsole.logを禁止
       '@typescript-eslint/no-explicit-any': 'error', // any型の使用を禁止
       '@typescript-eslint/explicit-function-return-type': 'error', // 関数の戻り値の型を明示的に指定
       '@typescript-eslint/no-unused-vars': 'error', // 未使用の変数をエラーとして報告
