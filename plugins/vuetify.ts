@@ -1,5 +1,5 @@
-import vuetify from '../utils/vuetify';
+import vuetify from '../utils/vuetify'
 
 export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.vueApp.use(vuetify);
-});
+  nuxtApp.vueApp.use(vuetify)
+})
