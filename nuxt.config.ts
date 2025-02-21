@@ -14,6 +14,13 @@ export default defineNuxtConfig({
   css: [
     '@mdi/font/css/materialdesignicons.css',
   ],
+  runtimeConfig: {
+    // パブリック設定（クライアントサイドでも利用可能）
+    public: {
+      googleSheetApiKey: process.env.GOOGLE_SHEET_API_KEY,
+      googleSheetId: process.env.GOOGLE_SHEET_ID,
+    },
+  },
   build: {
     transpile: ['vuetify'],
   },
