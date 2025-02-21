@@ -11,9 +11,6 @@ export default defineNuxtConfig({
     },
   ],
   devtools: { enabled: true },
-  css: [
-    '@mdi/font/css/materialdesignicons.css',
-  ],
   runtimeConfig: {
     // パブリック設定（クライアントサイドでも利用可能）
     public: {
