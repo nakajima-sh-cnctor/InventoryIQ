@@ -10,4 +10,9 @@ export default createVuetify({
   theme: {
     defaultTheme: 'light',
   },
+  defaults: {
+    VDataTable: {
+      hideDefaultFooter: true,
+    },
+  },
 })
