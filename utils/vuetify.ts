@@ -9,6 +9,16 @@ export default createVuetify({
   directives,
   theme: {
     defaultTheme: 'light',
+    themes: {
+      light: {
+        colors: {
+          primary: '#a83d49',
+          secondary: '#4c4951',
+          accent: '#9a9c97',
+          background: '#ece7e9',
+        },
+      },
+    },
   },
   defaults: {
     VDataTable: {
