@@ -31,7 +31,6 @@ export default withNuxt([
     rules: {
       'vue/require-v-for-key': 'error', // v-forディレクティブでkeyの指定を強制
       'vue/no-use-v-if-with-v-for': 'error', // v-ifとv-forの同時使用を禁止
-      'vue/multi-word-component-names': 'error', // コンポーネント名は複数単語を強制
       'vue/html-indent': ['error', 2], // テンプレートのインデントを2スペースに
       'vue/html-closing-bracket-newline': ['error', {
         singleline: 'never', // 単一行の場合は改行なし
@@ -47,6 +46,12 @@ export default withNuxt([
       '@typescript-eslint/explicit-function-return-type': 'error', // 関数の戻り値の型を明示的に指定
       '@typescript-eslint/no-unused-vars': 'error', // 未使用の変数をエラーとして報告
       '@typescript-eslint/consistent-type-definitions': ['error', 'interface'], // 型定義に一貫性を強制
+    },
+  },
+  {
+    files: ['**/components/**/index.vue'],
+    rules: {
+      'vue/multi-word-component-names': 'error', // コンポーネント名は複数単語を強制
     },
   },
 ])
