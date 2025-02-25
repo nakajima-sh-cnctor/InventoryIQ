@@ -23,6 +23,7 @@ export default createVuetify({
   defaults: {
     VDataTable: {
       hideDefaultFooter: true,
+      class: 'text-secondary',
     },
   },
 })

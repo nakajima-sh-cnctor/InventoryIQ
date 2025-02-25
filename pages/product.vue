@@ -46,7 +46,6 @@ onMounted(async () => {
         cols="12"
       >
         <v-data-table
-          class="text-secondary"
           :headers="headers"
           :items="product"
           :loading="loading"
