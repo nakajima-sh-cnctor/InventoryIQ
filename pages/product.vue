@@ -31,9 +31,12 @@ onMounted(async () => {
 
 <template>
   <v-container>
-    <h1>商品情報</h1>
+    <h1 class="text-primary my-2">
+      商品情報
+    </h1>
     <v-alert
       v-if="error"
+      class="my-4"
       type="error"
       title="エラー"
       text="商品情報の取得に失敗しました。"
