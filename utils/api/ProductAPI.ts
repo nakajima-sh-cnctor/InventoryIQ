@@ -5,15 +5,26 @@ const API_PATH = 'https://sheets.googleapis.com/v4/spreadsheets'
 
 // 商品情報シートからデータを取得
 export const getProducts = async (): Promise<Product[]> => {
-  const config = useRuntimeConfig()
-  const response = await fetch(`${API_PATH}/${config.public.googleSheetId}/values/商品情報?key=${config.public.googleSheetApiKey}`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-  const data = await response.json()
-  return dataFormat(data)
+  try {
+    const config = useRuntimeConfig()
+    const response = await fetch(`${API_PATH}/${config.public.googleSheetId}/values/商品情報?key=${config.public.googleSheetApiKey}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
+
+    const data = await response.json()
+    return dataFormat(data)
+  }
+  catch (error) {
+    console.error('Error fetching products:', error)
+    throw error
+  }
 }
 
 // データの形式をProduct型に変換

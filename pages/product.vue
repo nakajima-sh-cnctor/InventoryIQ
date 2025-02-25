@@ -3,6 +3,7 @@ import { getProducts } from '~/utils/api/ProductAPI'
 import type { Product } from '~/interfaces/ProductInterFace'
 
 const product = ref<Product[]>([])
+const error = ref(false)
 
 const headers = [
   { title: '商品ID', key: 'id' },
@@ -14,13 +15,25 @@ const headers = [
 ]
 
 onMounted(async () => {
-  product.value = await getProducts()
+  try {
+    product.value = await getProducts()
+  }
+  catch (err) {
+    console.error('Failed to fetch products:', err)
+    error.value = true
+  }
 })
 </script>
 
 <template>
   <v-container>
     <h1>商品情報</h1>
+    <v-alert
+      v-if="error"
+      type="error"
+      title="エラー"
+      text="商品情報の取得に失敗しました。"
+    />
     <v-row>
       <v-col
         cols="12"
